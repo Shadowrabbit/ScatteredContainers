@@ -25,11 +25,11 @@ namespace RabiSquare.ScatteredContainers
             //随机敌对派系守卫
             var map = BaseGen.globalSettings.map;
             var incidentParms = new IncidentParms
-                {points = rp.workSitePoints, faction = rp.faction, target = map};
+                {points = rp.workSitePoints, faction = rp.faction, target = map, spawnCenter = rp.rect.CenterCell};
             var pawnGroupMakerParms =
                 IncidentParmsUtility.GetDefaultPawnGroupMakerParms(PawnGroupKindDefOf.Combat, incidentParms);
             var pawnList = PawnGroupMakerUtility.GeneratePawns(pawnGroupMakerParms).ToList();
-            PawnSpawnUtil.SpawnPawns(pawnList, incidentParms, map, Radius);
+            PawnSpawnUtil.SpawnPawns(pawnList, map, Radius, map.Center);
             var lordJob = new LordJob_DefendPoint(map.Center);
             LordMaker.MakeNewLord(rp.faction, lordJob, map, pawnList);
         }

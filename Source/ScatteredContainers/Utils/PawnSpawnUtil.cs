@@ -8,27 +8,19 @@
 // ******************************************************************
 
 using System.Collections.Generic;
-using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace RabiSquare.ScatteredContainers
 {
-    public class PawnSpawnUtil
+    public static class PawnSpawnUtil
     {
-        public static void SpawnPawns(IReadOnlyList<Pawn> pawns, IncidentParms incidentParms, Map map, int radius)
+        public static void SpawnPawns(IEnumerable<Pawn> pawns, Map map, int radius, IntVec3 spawnPos)
         {
-            if (!RCellFinder.TryFindRandomPawnEntryCell(out incidentParms.spawnCenter, map,
-                CellFinder.EdgeRoadChance_Hostile))
-            {
-                return;
-            }
-
-            var stageLoc = RCellFinder.FindSiegePositionFrom(
-                incidentParms.spawnCenter.IsValid ? incidentParms.spawnCenter : pawns[0].PositionHeld, map);
-            var spawnRotation = Rot4.FromAngleFlat((map.Center - stageLoc).AngleFlat);
+            var spawnRotation = Rot4.FromAngleFlat(spawnPos.AngleFlat);
             foreach (var pawn in pawns)
             {
-                var loc = CellFinder.RandomClosewalkCellNear(stageLoc, map, radius);
+                var loc = CellFinder.RandomClosewalkCellNear(spawnPos, map, radius);
                 GenSpawn.Spawn(pawn, loc, map, spawnRotation);
             }
         }

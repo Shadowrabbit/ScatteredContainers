@@ -5,7 +5,7 @@
         <symbol>SrContainerPost</symbol>
         <resolvers>
             <li Class="RabiSquare.ScatteredContainers.SymbolResolverContainerPost">
-                <minRectSize>(40, 40)</minRectSize>
+                <minRectSize>(10, 10)</minRectSize>
             </li>
         </resolvers>
     </RuleDef>

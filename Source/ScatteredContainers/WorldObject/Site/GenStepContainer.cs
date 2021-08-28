@@ -31,8 +31,15 @@ namespace RabiSquare.ScatteredContainers
         {
             //感兴趣的区域不存在
             if (!MapGenerator.TryGetVar("RectOfInterest", out CellRect cellCenter))
+            {
                 //从中心取个矩形
                 cellCenter = CellRect.SingleCell(map.Center);
+                cellCenter.minX -= 5;
+                cellCenter.minZ -= 5;
+                cellCenter.maxX += 5;
+                cellCenter.maxZ += 5;
+            }
+
             //使用中的区域
             if (!MapGenerator.TryGetVar("UsedRects", out List<CellRect> var2))
             {
