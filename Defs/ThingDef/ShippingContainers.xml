@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <DesignatorDropdownGroupDef>
+        <defName>Group_Shipping_Containers</defName>
+        <label>Shipping Containers</label>
+    </DesignatorDropdownGroupDef>
+
+    <ThingDef Abstract="True" Name="ShippingContainerBase" ParentName="BuildingBase">
+        <graphicData>
+            <shadowData>
+                <volume>(0.25, 0.35, 0.25)</volume>
+                <offset>(0,0,-0.1)</offset>
+            </shadowData>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(5,5)</drawSize>
+            <damageData>
+                <rect>(0.2,0.2,0.6,0.6)</rect>
+            </damageData>
+        </graphicData>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Building</altitudeLayer>
+        <statBases>
+            <MaxHitPoints>1200</MaxHitPoints>
+            <Mass>1700</Mass>
+            <Flammability>1.0</Flammability>
+            <Beauty>-200</Beauty>
+        </statBases>
+        <size>(5,2)</size>
+        <fillPercent>1</fillPercent>
+        <passability>Impassable</passability>
+        <blockWind>true</blockWind>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <selectable>true</selectable>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <drawerType>MapMeshOnly</drawerType>
+        <repairEffect>ConstructMetal</repairEffect>
+        <forceDebugSpawnable>true</forceDebugSpawnable>
+        <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+        <killedLeavings>
+            <ChunkSlagSteel>4</ChunkSlagSteel>
+            <Steel>30</Steel>
+            <ComponentIndustrial>3</ComponentIndustrial>
+            <Plasteel>100</Plasteel>
+        </killedLeavings>
+        <building>
+            <buildingTags>
+                <li>SrContainer</li>
+            </buildingTags>
+            <roofCollapseDamageMultiplier>0.2</roofCollapseDamageMultiplier>
+            <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+        </building>
+    </ThingDef>
+
+    <ThingDef Abstract="True" Name="ShippingContainerFullBase" ParentName="ShippingContainerBase">
+        <comps>
+            <li Class="CompProperties_Usable">
+                <useJob>UseItem</useJob>
+                <useLabel>Open shipping container</useLabel>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef Abstract="True" Name="ShippingContainerEmptyBase" ParentName="ShippingContainerBase">
+        <designatorDropdown>Group_Shipping_Containers</designatorDropdown>
+        <thingCategories>
+            <li>BuildingsMisc</li>
+        </thingCategories>
+        <costList>
+            <Steel>100</Steel>
+            <ComponentIndustrial>5</ComponentIndustrial>
+            <Plasteel>200</Plasteel>
+        </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <designationCategory>Misc</designationCategory>
+        <statBases>
+            <WorkToBuild>2500</WorkToBuild>
+        </statBases>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerFullBase">
+        <defName>BDsSC_Container_Full</defName>
+        <label>standarized shipping container</label>
+        <description>A rigid shipping container. May contain valuable resources.</description>
+        <graphicData>
+            <texPath>Things/StandardContainer/3HST/StandardContainer_3HST</texPath>
+        </graphicData>
+        <comps>
+            <li Class="BDsGlitterworld.CompProperties_UseEffect_ChangeBuilding">
+                <changeBuilding>true</changeBuilding>
+                <building>BDsSC_Container_3HST</building>
+                <RandomThingsSystem>
+                    <max>6</max>
+                    <min>1</min>
+                    <randomThings>
+                        <li>
+                            <thingDef>Steel</thingDef>
+                            <count>10~150</count>
+                            <chance>90</chance>
+                            <special>false</special>
+                        </li>
+                        <li>
+                            <thingDef>WoodLog</thingDef>
+                            <count>10~150</count>
+                            <chance>90</chance>
+                            <special>false</special>
+                        </li>
+                        <li>
+                            <thingDef>Plasteel</thingDef>
+                            <count>10~75</count>
+                            <chance>50</chance>
+                            <special>false</special>
+                        </li>
+                        <li>
+                            <thingDef>Gold</thingDef>
+                            <count>10~75</count>
+                            <chance>60</chance>
+                            <special>false</special>
+                        </li>
+                        <li>
+                            <thingDef>Uranium</thingDef>
+                            <count>10~75</count>
+                            <chance>50</chance>
+                            <special>false</special>
+                        </li>
+                        <li>
+                            <thingDef>ComponentIndustrial</thingDef>
+                            <count>5~20</count>
+                            <chance>20</chance>
+                            <special>false</special>
+                        </li>
+                        <li>
+                            <thingDef>ComponentSpacer</thingDef>
+                            <count>1~10</count>
+                            <chance>5</chance>
+                            <special>true</special>
+                        </li>
+                    </randomThings>
+                </RandomThingsSystem>
+                <RandomPawnsSystem>
+                    <chance>50</chance>
+                    <pawnGroups>
+                        <li>
+                            <pawnKinds>
+                                <Pirate>1~3</Pirate>
+                                <Scavenger>1~8</Scavenger>
+                            </pawnKinds>
+                        </li>
+                        <li>
+                            <pawnKinds>
+                                <Mercenary_Gunner>5~10</Mercenary_Gunner>
+                            </pawnKinds>
+                        </li>
+                        <li>
+                            <pawnKinds>
+                                <Mech_Centipede>0~1</Mech_Centipede>
+                                <Mech_Scyther>0~5</Mech_Scyther>
+                                <Mech_Lancer>0~5</Mech_Lancer>
+                            </pawnKinds>
+                        </li>
+                    </pawnGroups>
+                </RandomPawnsSystem>
+            </li>
+            <!--
+            <li Class="BDsGlitterworld.CompProperties_UseEffect_OpenBox">
+              <things>
+                <Steel>10~70</Steel>
+                <ComponentIndustrial>10~70</ComponentIndustrial>
+                <Plasteel>10~70</Plasteel>
+              </things>
+              <building>BDsSC_Container_3HST</building>
+            </li>
+            -->
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerEmptyBase">
+        <defName>BDsSC_Container_3HST</defName>
+        <label>standarized shipping container (3HST limited)</label>
+        <description>A rigid shipping container.</description>
+        <graphicData>
+            <texPath>Things/StandardContainer/3HST/StandardContainer_3HST</texPath>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerEmptyBase">
+        <defName>BDsSC_Container_Basic</defName>
+        <label>standarized shipping container</label>
+        <description>A rigid shipping container.</description>
+        <graphicData>
+            <shaderType>CutoutComplex</shaderType>
+            <texPath>Things/StandardContainer/Basic/StandardContainer_Basic</texPath>
+        </graphicData>
+        <colorGenerator Class="ColorGenerator_Options">
+            <options>
+                <li>
+                    <weight>5</weight>
+                    <only>(0.33,0.33,0.33,1)</only>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <only>(0.6,0.4,0.4,1)</only>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <only>(0.4,0.6,0.4,1)</only>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <only>(0.4,0.4,0.6,1)</only>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <only>(0.4,0.6,0.6,1)</only>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <only>(0.6,0.4,0.6,1)</only>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <only>(0.6,0.6,0.4,1)</only>
+                </li>
+                <li>
+                    <weight>6</weight>
+                    <min>(0.3,0.3,0.3,1)</min>
+                    <max>(0.5,0.5,0.5,1)</max>
+                </li>
+            </options>
+        </colorGenerator>
+        <comps>
+            <li>
+                <compClass>CompColorable</compClass>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerEmptyBase">
+        <defName>BDsSC_Container_CSOCO</defName>
+        <label>standarized shipping container (CSOCO)</label>
+        <description>A rigid shipping container.</description>
+        <graphicData>
+            <texPath>Things/StandardContainer/CSOCO/StandardContainer_CSOCO</texPath>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerEmptyBase">
+        <defName>BDsSC_Container_EVERGREEN</defName>
+        <label>standarized shipping container (Evergreen)</label>
+        <description>A rigid shipping container.</description>
+        <graphicData>
+            <texPath>Things/StandardContainer/Evergreen/StandardContainer_Evergreen</texPath>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerEmptyBase">
+        <defName>BDsSC_Container_FedEx</defName>
+        <label>standarized shipping container (FedEx)</label>
+        <description>A rigid shipping container.</description>
+        <graphicData>
+            <texPath>Things/StandardContainer/FedEx/StandardContainer_FedEx</texPath>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="ShippingContainerEmptyBase">
+        <defName>BDsSC_Container_MAERSK</defName>
+        <label>standarized shipping container (MAERSK)</label>
+        <description>A rigid shipping container.</description>
+        <graphicData>
+            <texPath>Things/StandardContainer/Maersk/StandardContainer_MAERSK</texPath>
+        </graphicData>
+    </ThingDef>
+
+
+</Defs>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <SitePartDef>
+        <defName>SrContainerPost</defName>
+        <label>集装箱掉落地点</label>
+        <description>集装箱掉落地点</description>
+        <workerClass>RabiSquare.ScatteredContainers.SitePartWorkerEmpty</workerClass>
+        <siteTexture>World/WorldObjects/Sites/GenericSite</siteTexture>
+        <expandingIconTexture>World/WorldObjects/Expanding/Sites/Nothing</expandingIconTexture>
+        <applyFactionColorToSiteTexture>false</applyFactionColorToSiteTexture>
+        <showFactionInInspectString>false</showFactionInInspectString>
+        <requiresFaction>false</requiresFaction>
+        <arrivedLetter>到达提示内容</arrivedLetter>
+        <arrivedLetterDef>NegativeEvent</arrivedLetterDef>
+        <wantsThreatPoints>false</wantsThreatPoints>
+    </SitePartDef>
+    <GenStepDef>
+        <defName>SrGenStepContainer</defName>
+        <linkWithSite>SrContainerPost</linkWithSite>
+        <order>451</order>
+        <genStep Class="RabiSquare.ScatteredContainers.GenStepContainer"/>
+    </GenStepDef>
+</Defs>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <RuleDef>
+        <defName>SrContainerPost</defName>
+        <symbol>SrContainerPost</symbol>
+        <resolvers>
+            <li Class="RabiSquare.ScatteredContainers.SymbolResolverContainerPost">
+                <minRectSize>(40, 40)</minRectSize>
+            </li>
+        </resolvers>
+    </RuleDef>
+    <RuleDef>
+        <defName>SrGuard</defName>
+        <symbol>SrGuard</symbol>
+        <resolvers>
+            <li Class="RabiSquare.ScatteredContainers.SymbolResolverGuard">
+                <minRectSize>(10, 10)</minRectSize>
+            </li>
+        </resolvers>
+    </RuleDef>
+</Defs>

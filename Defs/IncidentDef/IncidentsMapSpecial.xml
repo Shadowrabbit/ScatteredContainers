@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <IncidentDef>
+        <defName>SrContainerPostSiteGenerate</defName>
+        <label>集装箱地点生成</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+            <li>Map_RaidBeacon</li>
+        </targetTags>
+        <workerClass>RabiSquare.ScatteredContainers.IncidentWorkerContainerPostGenerate</workerClass>
+        <category>Misc</category>
+        <baseChance>1</baseChance>
+        <pointsScaleable>true</pointsScaleable>
+        <requireColonistsPresent>false</requireColonistsPresent>
+    </IncidentDef>
+</Defs>
