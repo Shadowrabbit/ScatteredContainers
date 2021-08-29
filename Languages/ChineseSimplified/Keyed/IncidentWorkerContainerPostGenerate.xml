@@ -2,4 +2,5 @@
 <LanguageData>
     <SrLabelContainerPostGenerate>集装箱地点生成</SrLabelContainerPostGenerate>
     <SrDescContainerPostGenerate>集装箱地点生成描述</SrDescContainerPostGenerate>
+    <SrMessageContainerDrop>集装箱掉落提示</SrMessageContainerDrop>
 </LanguageData>

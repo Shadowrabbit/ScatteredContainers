@@ -15,4 +15,16 @@
         <pointsScaleable>true</pointsScaleable>
         <requireColonistsPresent>false</requireColonistsPresent>
     </IncidentDef>
+    <IncidentDef>
+        <defName>SrContainerDrop</defName>
+        <label>集装箱掉落事件</label>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+            <li>Map_TempIncident</li>
+            <li>Map_Misc</li>
+        </targetTags>
+        <workerClass>RabiSquare.ScatteredContainers.IncidentWorkerContainerDrop</workerClass>
+        <category>ShipChunkDrop</category>
+        <baseChance>1.5</baseChance>
+    </IncidentDef>
 </Defs>

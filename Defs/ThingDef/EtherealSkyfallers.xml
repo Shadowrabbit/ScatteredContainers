@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="SkyfallerBase">
+        <defName>SrContainerIncoming</defName>
+        <label>降落中的集装箱</label>
+        <size>(5,2)</size>
+        <skyfaller>
+            <shadowSize>(6.25, 2.5)</shadowSize>
+            <explosionRadius>2</explosionRadius>
+            <explosionDamage>Bomb</explosionDamage>
+            <explosionDamageFactor>0.5</explosionDamageFactor>
+        </skyfaller>
+    </ThingDef>
+</Defs>

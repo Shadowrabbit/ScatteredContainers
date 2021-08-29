@@ -17,7 +17,7 @@ namespace RabiSquare.ScatteredContainers
     [UsedImplicitly]
     public class SymbolResolverContainerPost : SymbolResolver
     {
-        private IntRange _containerCountRange = new IntRange(1, 3);
+        private IntRange _containerCountRange = new IntRange(1, 4);
 
         public override void Resolve(ResolveParams rp)
         {
